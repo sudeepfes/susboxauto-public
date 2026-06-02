@@ -2,7 +2,7 @@ import config
 from playwright.sync_api import sync_playwright
 
 with sync_playwright() as p:
-    browser = p.chromium.launch(headless=False, args=['--disable-blink-features=AutomationControlled'])
+    browser = p.chromium.launch(headless=True, args=['--disable-blink-features=AutomationControlled', '--no-sandbox'])
     context = browser.new_context(viewport={'width': 1280, 'height': 800}, locale='en-US')
     page = context.new_page()
 
